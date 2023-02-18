@@ -1,0 +1,70 @@
+NOSQL
+-not only structured query language.
+-shiny and new
+-Document structure
+-More flexible to change
+-not good for complex relations
+-more methods
+-eg:- MongoDB etc.
+
+
+HOW TO CREATE MONGO database
+step 1:- use shopDB   => make database by write
+step 2:- db.products.insertOne({_id:1, name:"pen", price:12})
+step 3:- db.products.find()
+step4:- db.products.find({name:"pencil"})
+step 5:- db.collection.find({price{$gt:1}})
+step 6:- db.products.find({_id:1},{name:1})
+step7:- db.products.updateOne({_id:1}, {$set:{stock:32}})
+step 8:- db.products.deleteOne({_id:2})
+
+
+HOW TO INSERT DATA
+-db.name_of_the_table/collection(agar yeh phele se hi hua db mae to thik wrna new bna dega).insertOne({})
+
+
+
+HOW TO READ DATA
+-db.collection_name.find() -> sare documents aa jainge jitne bhi collection k andar hain.
+->we also can use 
+db.collection.find(query, projection) ->for a modified search.
+eg:-> db.collection_name.find({name:"pencil"}) //collection mae pencil name k documents aa jainge
+eg:-> db.collection.find({price{$gt:1}})
+//jitne bhi price naam k documents >1 hai sb aa jainge, gt is used for ">".
+eg with query and projection -> db.collection.find({id:1}, {name:1})//matlab wo ducuments jiski id 1 ho or kewal name
+attribute do uska {name:1}, 1 means true only name.
+
+HOW TO UPDATE
+db.collection.updateOne({_id:1}, {$set:{stock:32}})//matlab id one mae stock add krke uski value 32.
+
+HOW TO DELETE 
+db.collection.deleteOne({_id:2})
+
+HOW TO MAKE relationships
+-this is one to many relationship because one documents(product i.e rubber here) have many review
+db.products.insert ({
+    _id:3,
+    name:"Rubber",
+    price:12,
+    stock:43,
+    review:[
+        {
+            authorName:"manish",
+            rating:1,
+            review:"worst rubber ever!"
+        },
+        {
+            authorName:"shivani",
+            rating:5,
+            review:"best rubber ever!"
+        }
+    ]
+})
+
+
+some COMMANDS
+1- show dbs -> for show the databases
+2- db -> to check in which database
+3- show collections-> for checking collections //element inside the collections is called the documents.
+4- use database_name -> to come in that database
+5- db.dropDatabase() ->delete whole database.
