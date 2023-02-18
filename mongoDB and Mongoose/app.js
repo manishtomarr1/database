@@ -111,17 +111,17 @@ Fruit.deleteOne({ name: "grapes" }, function (err) {
 //we have a person colllection in which we have one document that is manish if we want to
 //add the favourite food of that person then
 //1-create a favourite food in people's schema and type is fruit schema, jaise uppar kia.
-const guvava = new Fruit({
+const guava = new Fruit({
   name: "guvava",
   rating: 10,
   review: "kabzi nhi lagne de!",
 });
-//guvava.save();
+//guava.save();
 
 const sheetal = new Person({
   name: "sheetal",
   age: 56,
-  favouriteFruit: guvava,
+  favouriteFruit: guava,
 });
 //sheetal.save();
 
