@@ -1,0 +1,74 @@
+SQl
+
+-sql stande for structured query language.
+-when we have the related data we use sql.
+-in sql data stored in the forms of rows and colomn.
+-sql is more meture because of old one all the data is formated together.
+-sql data base required a schema(structure).
+-sql is the vertically type database.
+-more expensive
+-example: MYSQL, postgreSQL
+
+SQL COMMANDS
+
+1. create table
+
+CREATE TABLE products (
+id INT NOT NULL,  // not null means this field is not to be null.
+name STRING,
+  price MONEY,
+  PRIMARY KEY (ID) //way to create the primary key.
+)
+
+2. insert data into colomns
+
+INSERT into products (when we want to insert into all colomns)
+VALUES(2,"copy", 2.54)
+
+INSERT INTO products(id, name) (when we have to insert data in the particular colomns or not fill in any of the colomn)
+VALUES(3,"chips")
+
+3.read data from TABLE
+SELECT * FROM products //by which we can see whole table
+
+SELECT * FROM products WHERE id=1 // if we want to select or read any rows
+
+SELECT name, price FROM products // if we want to ignore any of the colomn.
+
+4. update
+
+UPDATE products // update table name
+set price=10 // which value
+WHERE id=3 //in which id because if we dont use where thw whole value in the table is change to 10
+
+ALTER TABLE products
+ADD stock INT//when we want to add new colomn in the existing table.
+
+5. delete
+delete from products
+where id=3 //where is manadatory else all the table is delete
+
+6. making relationships
+
+CREATE table orders (
+  id INT NOT NULL,
+  order_number INT,
+  customer_id INT,
+  product_id INT,
+  PRIMARY KEY(id),
+  FOREIGN KEY (customer_id) REFERENCES customers(id), //yeh comman part hai mtlb reference wala part 
+  FOREIGN KEY (product_id) REFERENCES products(id)
+  )
+  
+ => inner join (join the tables where forign key matches)
+
+ SELECT orders.order_number, customers.First, customers.Last //jo jo dekhana hai table mae
+from orders //jha forigin keys hain means here we join orders to customers
+INNER JOIN customers on orders.customer_id=customers.id //mtlab kis table ko orders se jodna hai means customers ko.
+
+SELECT orders.order_number, products.name, products.price
+from orders
+INNER JOIN products on orders.product_id=products.id
+
+
+NOSQL
