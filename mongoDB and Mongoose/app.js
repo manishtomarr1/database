@@ -16,7 +16,7 @@ const fruitSchema = new mongoose.Schema({
   review: { type: String },
 });
 
-const Fruit = mongoose.model("Fruit", fruitSchema); //in the fruitDB we create the Fruit document.
+const Fruit = mongoose.model("Fruit", fruitSchema); //in the fruitDB we create the Fruit collection.
 //jb bhi kuch add krna hoga Fruit collection mae we use this Fruit jaise niche kia.
 //esko model bolte hai mongoose ki language mae, sare function in model section of the docs of
 //mongoose.
